@@ -79,6 +79,9 @@ cc_defaults {
     }) + select(soong_config_variable("exynos_hwc", "MINIMUM_DISPLAY_BRIGHTNESS"), {
         any @ flag_val: [ "-DMINIMUM_DISPLAY_BRIGHTNESS=" + flag_val ],
         default: [],
+    }) + select(soong_config_variable("exynos_hwc", "UDFPS_DIM_LAYER_ZORDER"), {
+        any @ flag_val: ["-DUDFPS_DIM_LAYER_ZORDER=" + flag_val],
+        default: [],
     }) + select(soong_config_variable("exynos_hwc", "uses_hwc_services"), {
         "true": [ "-DUSES_HWC_SERVICES" ],
         default: [],
