@@ -33,6 +33,12 @@
 
 #define IDMA(x) static_cast<decon_idma_type>(x)
 
+/*
+ * The 7885's G2D composes at most 8 layers (libacryl's limit). Without this the
+ * resource manager uses the generic 15 and hands G2D more layers than it can take.
+ */
+#define G2D_MAX_SRC_NUM 7
+
 #define DEDICATED_CHANNEL_TYPE MPP_DPP_G
 #define DEDICATED_CHANNEL_INDEX 0
 #define USE_DEDICATED_TOP_WINDOW
